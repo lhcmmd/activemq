@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="active-spring" />
+        <module name="active-springboot" />
+        <module name="activemq-java" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="active-spring" target="1.5" />
+      <module name="active-springboot" target="1.8" />
+      <module name="activemq-java" target="1.7" />
+      <module name="activemq-spring" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

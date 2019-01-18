@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/active-spring" />
+    <file type="web" url="file://$PROJECT_DIR$/activemq-java" />
+    <file type="web" url="file://$PROJECT_DIR$/activemq-spring" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/activemq-java/pom.xml" />
+        <option value="$PROJECT_DIR$/active-springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/active-spring/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

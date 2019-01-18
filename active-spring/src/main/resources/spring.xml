@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="com.baizhi.service"></context:component-scan>
+    <!--和activeMQ集成的问题-->
+    <!--创建连接工厂-->
+    <bean id="amq" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="password" value="admin"></property>
+        <property name="userName" value="admin"></property>
+        <property name="brokerURL" value="tcp://192.168.194.144:61616"></property>
+    </bean>
+    <bean id="queue" class="org.apache.activemq.command.ActiveMQQueue">
+        <property name="physicalName" value="springQueue"></property>
+    </bean>
+    <!--    <bean id="topic" class="org.apache.activemq.command.ActiveMQTopic">
+            <property name="physicalName" value="springQueue"></property>
+        </bean>-->
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="amq"></property>
+        <property name="defaultDestination" ref="queue"></property>
+        <property name="pubSubDomain" value="false"></property>
+    </bean>
+    <!--消息监听器-->
+    <bean id="consumerListener" class="com.baizhi.service.ConsumerListener"></bean>
+    <!--消息监听容器-->
+    <bean id="messageListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="pubSubDomain" value="false"></property>
+        <property name="destination" ref="queue"></property>
+        <property name="messageListener" ref="consumerListener"></property>
+        <property name="connectionFactory" ref="amq"></property>
+    </bean>
+
+</beans>
